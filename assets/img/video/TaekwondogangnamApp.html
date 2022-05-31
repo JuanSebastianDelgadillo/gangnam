@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://localhost:4200/login -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>TaekwondogangnamApp</title>
+  <!--<base href="/">--><base href=".">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="http://localhost:4200/assets/logo/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./TaekwondogangnamApp_files/css2" rel="stylesheet">  
+<link rel="stylesheet" href="./TaekwondogangnamApp_files/styles.css"><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LmNzcyJ9 */</style><style>.logo_movil[_ngcontent-hgy-c30]{
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    z-index: 200;
+}
+
+.logo_movil[_ngcontent-hgy-c30]   img[_ngcontent-hgy-c30]{
+    width: 80px;
+    cursor: pointer;
+}
+
+.logo_movil[_ngcontent-hgy-c30]   img[_ngcontent-hgy-c30]:hover{
+    transition-duration: .6s;
+    transform: scale(0.7);
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vdmlsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxlQUFlO0lBQ2YsVUFBVTtJQUNWLFlBQVk7SUFDWixZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksV0FBVztJQUNYLGVBQWU7QUFDbkI7O0FBRUE7SUFDSSx3QkFBd0I7SUFDeEIscUJBQXFCO0FBQ3pCIiwiZmlsZSI6Im1vdmlsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubG9nb19tb3ZpbHtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgbGVmdDogMTBweDtcbiAgICBib3R0b206IDEwcHg7XG4gICAgei1pbmRleDogMjAwO1xufVxuXG4ubG9nb19tb3ZpbCBpbWd7XG4gICAgd2lkdGg6IDgwcHg7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4ubG9nb19tb3ZpbCBpbWc6aG92ZXJ7XG4gICAgdHJhbnNpdGlvbi1kdXJhdGlvbjogLjZzO1xuICAgIHRyYW5zZm9ybTogc2NhbGUoMC43KTtcbn0iXX0= */</style><style>.card-container.card[_ngcontent-hgy-c23] {
+    max-width: 350px;
+    padding: 40px 40px;
+}
+
+.btn[_ngcontent-hgy-c23] {
+    font-weight: 700;
+    height: 36px;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+
+
+.card[_ngcontent-hgy-c23] {
+    background-color: #F7F7F7;
+    
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card[_ngcontent-hgy-c23] {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 10px;
+    display: block;
+    border-radius: 50%;
+}
+
+
+
+.profile-name-card[_ngcontent-hgy-c23] {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email[_ngcontent-hgy-c23] {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.form-signin[_ngcontent-hgy-c23]   #inputEmail[_ngcontent-hgy-c23], .form-signin[_ngcontent-hgy-c23]   #inputPassword[_ngcontent-hgy-c23] {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin[_ngcontent-hgy-c23]   input[type=email][_ngcontent-hgy-c23], .form-signin[_ngcontent-hgy-c23]   input[type=password][_ngcontent-hgy-c23], .form-signin[_ngcontent-hgy-c23]   input[type=text][_ngcontent-hgy-c23], .form-signin[_ngcontent-hgy-c23]   button[_ngcontent-hgy-c23] {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.form-signin[_ngcontent-hgy-c23]   .form-control[_ngcontent-hgy-c23]:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin[_ngcontent-hgy-c23] {
+    
+    background-color: rgb(104, 145, 162);
+    
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    border-radius: 3px;
+    border: none;
+    transition: all 0.218s;
+}
+
+.btn.btn-signin[_ngcontent-hgy-c23]:hover, .btn.btn-signin[_ngcontent-hgy-c23]:active, .btn.btn-signin[_ngcontent-hgy-c23]:focus {
+    background-color: rgb(12, 97, 33);
+}
+
+.forgot-password[_ngcontent-hgy-c23] {
+    color: rgb(104, 145, 162);
+}
+
+.forgot-password[_ngcontent-hgy-c23]:hover, .forgot-password[_ngcontent-hgy-c23]:active, .forgot-password[_ngcontent-hgy-c23]:focus{
+    color: rgb(12, 97, 33);
+}
+
+.btn-google[_ngcontent-hgy-c23]{
+    background-color: #dd4b39;
+     color: #fff;
+     cursor: pointer;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvZ2luLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7SUFDaEIsa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLFlBQVk7SUFFWix5QkFBeUI7SUFDekIsaUJBQWlCO0lBQ2pCLGVBQWU7QUFDbkI7O0FBRUE7O0VBRUU7O0FBQ0Y7SUFDSSx5QkFBeUI7SUFDekIsaUNBQWlDO0lBQ2pDLHVCQUF1QjtJQUN2QixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLGdDQUFnQztJQUdoQyxrQkFBa0I7SUFHbEIsMENBQTBDO0FBQzlDOztBQUVBO0lBQ0ksWUFBWTtJQUNaLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsY0FBYztJQUdkLGtCQUFrQjtBQUN0Qjs7QUFFQTs7RUFFRTs7QUFDRjtJQUNJLGVBQWU7SUFDZixpQkFBaUI7SUFDakIsa0JBQWtCO0lBQ2xCLGdCQUFnQjtJQUNoQixlQUFlO0FBQ25COztBQUVBO0lBQ0ksY0FBYztJQUNkLGNBQWM7SUFDZCxjQUFjO0lBQ2QsbUJBQW1CO0lBQ25CLGVBQWU7SUFDZixrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLHVCQUF1QjtJQUN2QixtQkFBbUI7SUFHbkIsc0JBQXNCO0FBQzFCOztBQUVBOztJQUVJLGNBQWM7SUFDZCxZQUFZO0lBQ1osZUFBZTtBQUNuQjs7QUFFQTs7OztJQUlJLFdBQVc7SUFDWCxjQUFjO0lBQ2QsbUJBQW1CO0lBQ25CLFVBQVU7SUFDVixrQkFBa0I7SUFHbEIsc0JBQXNCO0FBQzFCOztBQUVBO0lBQ0ksZ0NBQWdDO0lBQ2hDLFVBQVU7SUFFVix1RUFBdUU7QUFDM0U7O0FBRUE7SUFDSSw4QkFBOEI7SUFDOUIsb0NBQW9DO0lBQ3BDLDJFQUEyRTtJQUMzRSxZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLGVBQWU7SUFDZixZQUFZO0lBR1osa0JBQWtCO0lBQ2xCLFlBQVk7SUFJWixzQkFBc0I7QUFDMUI7O0FBRUE7OztJQUdJLGlDQUFpQztBQUNyQzs7QUFFQTtJQUNJLHlCQUF5QjtBQUM3Qjs7QUFFQTs7O0lBR0ksc0JBQXNCO0FBQzFCOztBQUVBO0lBQ0kseUJBQXlCO0tBQ3hCLFdBQVc7S0FDWCxlQUFlO0FBQ3BCIiwiZmlsZSI6ImxvZ2luLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2FyZC1jb250YWluZXIuY2FyZCB7XG4gICAgbWF4LXdpZHRoOiAzNTBweDtcbiAgICBwYWRkaW5nOiA0MHB4IDQwcHg7XG59XG5cbi5idG4ge1xuICAgIGZvbnQtd2VpZ2h0OiA3MDA7XG4gICAgaGVpZ2h0OiAzNnB4O1xuICAgIC1tb3otdXNlci1zZWxlY3Q6IG5vbmU7XG4gICAgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTtcbiAgICB1c2VyLXNlbGVjdDogbm9uZTtcbiAgICBjdXJzb3I6IGRlZmF1bHQ7XG59XG5cbi8qXG4gKiBDYXJkIGNvbXBvbmVudFxuICovXG4uY2FyZCB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0Y3RjdGNztcbiAgICAvKiBqdXN0IGluIGNhc2UgdGhlcmUgbm8gY29udGVudCovXG4gICAgcGFkZGluZzogMjBweCAyNXB4IDMwcHg7XG4gICAgbWFyZ2luOiAwIGF1dG8gMjVweDtcbiAgICBtYXJnaW4tdG9wOiA1MHB4O1xuICAgIC8qIHNoYWRvd3MgYW5kIHJvdW5kZWQgYm9yZGVycyAqL1xuICAgIC1tb3otYm9yZGVyLXJhZGl1czogMnB4O1xuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogMnB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDJweDtcbiAgICAtbW96LWJveC1zaGFkb3c6IDBweCAycHggMnB4IHJnYmEoMCwgMCwgMCwgMC4zKTtcbiAgICAtd2Via2l0LWJveC1zaGFkb3c6IDBweCAycHggMnB4IHJnYmEoMCwgMCwgMCwgMC4zKTtcbiAgICBib3gtc2hhZG93OiAwcHggMnB4IDJweCByZ2JhKDAsIDAsIDAsIDAuMyk7XG59XG5cbi5wcm9maWxlLWltZy1jYXJkIHtcbiAgICB3aWR0aDogMjAwcHg7XG4gICAgaGVpZ2h0OiAyMDBweDtcbiAgICBtYXJnaW46IDAgYXV0byAxMHB4O1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIC1tb3otYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuLypcbiAqIEZvcm0gc3R5bGVzXG4gKi9cbi5wcm9maWxlLW5hbWUtY2FyZCB7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBtYXJnaW46IDEwcHggMCAwO1xuICAgIG1pbi1oZWlnaHQ6IDFlbTtcbn1cblxuLnJlYXV0aC1lbWFpbCB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgY29sb3I6ICM0MDQwNDA7XG4gICAgbGluZS1oZWlnaHQ6IDI7XG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gICAgLXdlYmtpdC1ib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG59XG5cbi5mb3JtLXNpZ25pbiAjaW5wdXRFbWFpbCxcbi5mb3JtLXNpZ25pbiAjaW5wdXRQYXNzd29yZCB7XG4gICAgZGlyZWN0aW9uOiBsdHI7XG4gICAgaGVpZ2h0OiA0NHB4O1xuICAgIGZvbnQtc2l6ZTogMTZweDtcbn1cblxuLmZvcm0tc2lnbmluIGlucHV0W3R5cGU9ZW1haWxdLFxuLmZvcm0tc2lnbmluIGlucHV0W3R5cGU9cGFzc3dvcmRdLFxuLmZvcm0tc2lnbmluIGlucHV0W3R5cGU9dGV4dF0sXG4uZm9ybS1zaWduaW4gYnV0dG9uIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXJnaW4tYm90dG9tOiAxMHB4O1xuICAgIHotaW5kZXg6IDE7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIC1tb3otYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgICAtd2Via2l0LWJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbn1cblxuLmZvcm0tc2lnbmluIC5mb3JtLWNvbnRyb2w6Zm9jdXMge1xuICAgIGJvcmRlci1jb2xvcjogcmdiKDEwNCwgMTQ1LCAxNjIpO1xuICAgIG91dGxpbmU6IDA7XG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiBpbnNldCAwIDFweCAxcHggcmdiYSgwLDAsMCwuMDc1KSwwIDAgOHB4IHJnYigxMDQsIDE0NSwgMTYyKTtcbiAgICBib3gtc2hhZG93OiBpbnNldCAwIDFweCAxcHggcmdiYSgwLDAsMCwuMDc1KSwwIDAgOHB4IHJnYigxMDQsIDE0NSwgMTYyKTtcbn1cblxuLmJ0bi5idG4tc2lnbmluIHtcbiAgICAvKmJhY2tncm91bmQtY29sb3I6ICM0ZDkwZmU7ICovXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDEwNCwgMTQ1LCAxNjIpO1xuICAgIC8qIGJhY2tncm91bmQtY29sb3I6IGxpbmVhci1ncmFkaWVudChyZ2IoMTA0LCAxNDUsIDE2MiksIHJnYigxMiwgOTcsIDMzKSk7Ki9cbiAgICBwYWRkaW5nOiAwcHg7XG4gICAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gICAgaGVpZ2h0OiAzNnB4O1xuICAgIC1tb3otYm9yZGVyLXJhZGl1czogM3B4O1xuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogM3B4O1xuICAgIGJvcmRlci1yYWRpdXM6IDNweDtcbiAgICBib3JkZXI6IG5vbmU7XG4gICAgLW8tdHJhbnNpdGlvbjogYWxsIDAuMjE4cztcbiAgICAtbW96LXRyYW5zaXRpb246IGFsbCAwLjIxOHM7XG4gICAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMC4yMThzO1xuICAgIHRyYW5zaXRpb246IGFsbCAwLjIxOHM7XG59XG5cbi5idG4uYnRuLXNpZ25pbjpob3Zlcixcbi5idG4uYnRuLXNpZ25pbjphY3RpdmUsXG4uYnRuLmJ0bi1zaWduaW46Zm9jdXMge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigxMiwgOTcsIDMzKTtcbn1cblxuLmZvcmdvdC1wYXNzd29yZCB7XG4gICAgY29sb3I6IHJnYigxMDQsIDE0NSwgMTYyKTtcbn1cblxuLmZvcmdvdC1wYXNzd29yZDpob3Zlcixcbi5mb3Jnb3QtcGFzc3dvcmQ6YWN0aXZlLFxuLmZvcmdvdC1wYXNzd29yZDpmb2N1c3tcbiAgICBjb2xvcjogcmdiKDEyLCA5NywgMzMpO1xufVxuXG4uYnRuLWdvb2dsZXtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZGQ0YjM5O1xuICAgICBjb2xvcjogI2ZmZjtcbiAgICAgY3Vyc29yOiBwb2ludGVyO1xufSJdfQ== */</style></head>
+<body>
+  <app-root _nghost-hgy-c31="" ng-version="13.1.3"><app-movil _ngcontent-hgy-c31="" _nghost-hgy-c30=""><div _ngcontent-hgy-c30="" class="logo_movil"><a _ngcontent-hgy-c30="" target="_blank" href="https://api.whatsapp.com/send?phone=56996936149&amp;text=Contacto%20con%20Taekwondo%20Gang-nam,%20a%20su%20orden..."><img _ngcontent-hgy-c30="" src="./TaekwondogangnamApp_files/whatsapp-logo.png"></a></div></app-movil><router-outlet _ngcontent-hgy-c31=""></router-outlet><app-login _nghost-hgy-c23=""><div _ngcontent-hgy-c23="" class="container"><div _ngcontent-hgy-c23="" class="card card-container"><img _ngcontent-hgy-c23="" id="profile-img" src="./TaekwondogangnamApp_files/logo2.png" class="profile-img-card"><p _ngcontent-hgy-c23="" id="profile-name" class="profile-name-card"></p><form _ngcontent-hgy-c23="" class="form-signin"><span _ngcontent-hgy-c23="" id="reauth-email" class="reauth-email"></span><input _ngcontent-hgy-c23="" type="email" id="inputEmail" placeholder="Email address" required="" autofocus="" class="form-control"><input _ngcontent-hgy-c23="" type="password" id="inputPassword" placeholder="Password" required="" class="form-control"><div _ngcontent-hgy-c23="" id="remember" class="checkbox"><label _ngcontent-hgy-c23=""><input _ngcontent-hgy-c23="" type="checkbox" value="remember-me"> Recuerdame </label></div><button _ngcontent-hgy-c23="" type="submit" class="btn btn-lg btn-primary p-1">Login</button></form><p _ngcontent-hgy-c23="">o</p><button _ngcontent-hgy-c23="" class="btn btn-lg btn-google p-1">Google</button><a _ngcontent-hgy-c23="" href="http://localhost:4200/#" class="forgot-password"> Olvido la clave? </a></div></div></app-login><!--container--></app-root>
+<script src="./TaekwondogangnamApp_files/runtime.js" type="module"></script><script src="./TaekwondogangnamApp_files/polyfills.js" type="module"></script><script src="./TaekwondogangnamApp_files/styles.js" defer=""></script><script src="./TaekwondogangnamApp_files/scripts.js" defer=""></script><script src="./TaekwondogangnamApp_files/vendor.js" type="module"></script><script src="./TaekwondogangnamApp_files/main.js" type="module"></script>
+
+</body></html>
