@@ -19,7 +19,27 @@ class Inicio extends CI_Controller {
 		$this->load->view('headers/navbar');
 		$this->load->view('bases/sliders');
 		$this->load->view('bases/galeria');
-		$this->load->view('index', $data);
+		//$this->load->view('index', $data);
+		$this->load->view('bases/bottom');
+		$this->load->view('footers/footer');
+	}
+
+	public function login()
+	{
+		$data = $this->Inicio_model->getUsuarios();
+		$this->load->view('headers/header');
+		$this->load->view('headers/navbar');
+		$this->load->view('bases/login');
+		$this->load->view('footers/footer');
+		// RewriteRule ^(.*)$ /carpeta/index.php/$1 [L]
+	}
+
+	public function forgot()
+	{
+		$data = $this->Inicio_model->getUsuarios();
+		$this->load->view('headers/header');
+		$this->load->view('headers/navbar');
+		$this->load->view('bases/login');
 		$this->load->view('footers/footer');
 	}
 }
