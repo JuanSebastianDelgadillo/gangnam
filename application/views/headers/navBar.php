@@ -32,7 +32,7 @@
             </li>
             </ul>
             <span class="navbar-text">
-            <button class="btn btn-outline-light" routerLink="/login">Login</button>
+            <a class="btn btn-outline-light" href="<?php echo base_url(); ?>login">Login</a>
             </span>
         </div>
         </div>
