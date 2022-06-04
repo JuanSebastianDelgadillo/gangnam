@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-lg-3 col-6">
                 <!-- CARD -->
-                <form>
+                <form enctype="multipart/form-data" id="form_user">
                 <div class="card" style="width:350px">
                 <?php if($usuario->avatar){
                     $avatar = base_url()."assets/img/perfil_foto/".$usuario->avatar;
@@ -36,13 +36,28 @@
                     <input id="avatar" name="avatar" style="visibility:hidden;" type="file">
                     <!-- <input type="file" class="form-control" id="avatar" accept="image/png, image/jpeg"> -->
                     <div class="card-body">
+
                         <h4 class="card-text text-center"><input class="form-control" placeholder="Nombre" name="nombre"  id="nombre"type="text" value="<?php echo $usuario->nombre; ?>"></h4>
                         <h4 class="card-text text-center"><input class="form-control" placeholder="Apellido" name="apellido"  id="apellido"type="text" value="<?php echo $usuario->apellido; ?>"></h4>
                         <p class="card-text text-center"><input class="form-control" placeholder="Grado" name="grado"  id="grado"type="text" value="<?php echo $usuario->grado; ?>"></p>
                         <p class="card-text text-center"><input class="form-control" placeholder="Email" name="email"  id="email"type="text" value="<?php echo $usuario->email; ?>"></p>
                         <p class="card-text text-center"><input class="form-control" placeholder="Password" name="password"  id="password"type="password" value="<?php echo $usuario->password; ?>"></p>
+                        <label for="cars">Perfil</label>
+                        <p class="card-text text-center">
+                          <select class="form-control" name="perfil"  id="perfil">
+                            <?php 
+                              foreach ($perfiles as $perfil) {
+                                echo '<option value="'.$perfil->id.'">'.$perfil->tipo.'</option>';
+                              }
+                            ?>
+                           
+                          </select>
+                          </p>
+                          <label for="cars">Orden</label>
                         <p class="card-text text-center"><input class="form-control" placeholder="Orden" name="orden"  id="orden"type="number" value="<?php echo $usuario->orden; ?>"></p>
-                    </div>
+                        <input type="hidden" id="id" name="id" value="<?php echo $usuario->id; ?>">
+                        <input type="hidden" id="name_avatar" name="name_avatar" value="<?php echo $usuario->avatar; ?>">
+                      </div>
                     <div class="card-footer">
                     <div class="alert alert-success" role="alert" id="alertTrue" style="display:none;">
                         Guardado correcto, enseguida será redireccionado !!
@@ -50,6 +65,7 @@
                     <div class="alert alert-danger" role="alert" id="alertFalse" style="display:none;">
                         ¡No ha podido guardar!
                     </div>
+                        <button class="btn btn-warning" id="volver">Volver</button>
                         <button class="btn btn-primary" id="guardar">Guardar</button>
                     </div>
                 </div>
@@ -63,45 +79,33 @@
   <!-- /.content-wrapper -->
 <script>
   $(document).ready(function(){
+    var filename = null;
     $("#files").change(function() {
       filename = this.files[0].name
-      console.log(filename);
+    });
+
+    $("#volver").click(function(e){
+      e.preventDefault();
+      window.location.href = "<?php echo base_url('dashboard/alumnos'); ?>";
     });
 
     $("#guardar").click(function(e){
-
-      console.log("Pasando por aca....");
         e.preventDefault();
-        var usuario = {
-          'nombre'    : $("#nombre").val(),
-          'apellido'  : $("#apellido").val(),
-          'grado' 	  : $("#grado").val(),
-          'perfil' 		: $("#email").val(),
-          'password' 	: $("#password").val(),
-          'orden' 	  : $("#orden").val(),
-          'avatar' 	  : $("#avatar").val()
-        };
-
-        var login = {
-          'email' 	  : $("#email").val(),
-          'password' 	: $("#password").val(),
-        };
-
-
+        var formData = new FormData($("#form_user")[0]);
         $.ajax({
             url: "<?php echo base_url('dashboard/guardar_usuario');?>",
             type: "post",
-            data: {usuario, login},
+            data: formData,
             cache: false,
-            dataType: 'json',
+            contentType: false,
+            processData: false,
             success: function (data) {
                 console.log("data",data);
                 if (data.payload) {
                     $('#alertTrue').css('display','block');
                     $('#alertFalse').css('display','none');
-                    // window.location.href = "<?php echo base_url('dashboard'); ?>";
+                    window.location.href = "<?php echo base_url('dashboard/alumnos'); ?>";
                 } else {
-                    console.log("Pasando por aca");
                     $('#alertTrue').css('display','none');
                     $('#alertFalse').css('display','block');
                 }

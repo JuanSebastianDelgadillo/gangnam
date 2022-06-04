@@ -10,25 +10,25 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link {{ activeHome }}" aria-current="page" routerLink="">Home</a>
+                <a class="nav-link {{ activeHome }}" aria-current="page" href="./">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ activeDirector }}" routerLink="/director">Director</a>
+                <a class="nav-link {{ activeDirector }}" href="<?php echo base_url(); ?>director">Director</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeAcerca }}" routerLink="/acerca">Acerca de nosotros</a>
+                <a class="nav-link {{  activeAcerca }}" href="<?php echo base_url(); ?>acerca">Acerca de nosotros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeProgramas }}" routerLink="/programas">Programas</a>
+                <a class="nav-link {{  activeProgramas }}" href="<?php echo base_url(); ?>programas">Programas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeAmigos }}" routerLink="/amigos">Amigos</a>
+                <a class="nav-link {{  activeAmigos }}" href="<?php echo base_url(); ?>amigos">Amigos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeCalendario }}" routerLink="/calendario">Calendario</a>
+                <a class="nav-link {{  activeCalendario }}" href="<?php echo base_url(); ?>calendario">Calendario</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeContacto}}" routerLink="/contacto">Contacto</a>
+                <a class="nav-link {{  activeContacto}}" href="<?php echo base_url(); ?>contacto">Contacto</a>
             </li>
             </ul>
             <span class="navbar-text">

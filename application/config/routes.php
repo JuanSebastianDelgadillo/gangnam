@@ -16,7 +16,17 @@ $route['dashboard/perfil'] = 'dashboard/perfil';
 $route['dashboard/alumnos'] = 'dashboard/alumnos';
 $route['dashboard/editar/(:num)'] = 'dashboard/editar/$1';
 $route['dashboard/guardar_usuario'] = 'dashboard/guardar_usuario';
+$route['dashboard/eliminar/(:num)'] = 'dashboard/eliminar/$1';
 $route['dashboard/logout'] = 'dashboard/logout';
+
+
+//Pages
+$route['director']  = 'pages/director';
+$route['acerca']    = 'pages/acerca';
+$route['programas'] = 'pages/programas';
+$route['amigos']    = 'pages/amigos';
+$route['calendario']= 'pages/calendario';
+$route['contacto']  = 'pages/contacto';
 
 
 $route['404_override'] = '';

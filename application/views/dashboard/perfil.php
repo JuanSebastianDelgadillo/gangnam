@@ -24,13 +24,14 @@
           <div class="col-lg-3 col-6">
                 <!-- CARD -->
                 <div class="card" style="width:250px">
-                <?php if($usuario["foto"]){
-                    $avatar = base_url()."assets/img/perfil_foto/".$usuario["avatar"];
-                }else{
-                    $avatar = base_url()."assets/img/logo/perfil.png";
-                }
+                <?php 
+                    if($usuario["avatar"]){
+                        $avatar = base_url()."assets/img/perfil_foto/".$usuario["avatar"];
+                    }else{
+                        $avatar = base_url()."assets/img/logo/perfil.png";
+                    }
                 ?>
-                    <img class="card-img-top" src="<?php echo $foto; ?>" alt="Card image">
+                    <img class="card-img-top" src="<?php echo $avatar; ?>" alt="Card image">
                     <div class="card-body">
                         <h4 class="card-text text-center"><?php echo $usuario["nombre"]." ".$usuario["apellido"]; ?></h4>
                         <p class="card-text text-center"><?php echo $usuario["grado"]; ?></p>

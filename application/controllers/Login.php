@@ -47,8 +47,8 @@ class Login extends CI_Controller {
 					'apellido'=> $datos[0]->apellido,
 					'email'   => $email,
 					'perfil' => $datos[0]->perfil,
-					'grado'	=> $datos[0]->grado,
-					'avatar'	=> $datos[0]->avatar,
+					'grado'	 => $datos[0]->grado,
+					'avatar' => $datos[0]->avatar,
 				);
 				$this->session->set_userdata('user_session',$arraydata);
 				return $this->output

@@ -42,7 +42,6 @@
                     $('#alertFalse').css('display','none');
                     window.location.href = "<?php echo base_url('dashboard'); ?>";
                 } else {
-                    console.log("Pasando por aca");
                     $('#alertTrue').css('display','none');
                     $('#alertFalse').css('display','block');
                 }

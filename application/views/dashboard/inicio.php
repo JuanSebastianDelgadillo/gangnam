@@ -104,8 +104,15 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <?php 
+          if($usuario["avatar"]){
+              $avatar = base_url()."assets/img/perfil_foto/".$usuario["avatar"];
+          }else{
+              $avatar = base_url()."assets/img/logo/perfil.png";
+          }
+      ?>
         <div class="image">
-          <img src="<?php echo base_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo $avatar; ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?php echo $usuario["nombre"]." ".$usuario["apellido"]; ?></a>
