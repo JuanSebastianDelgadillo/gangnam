@@ -19,7 +19,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('headers/navbar');
 		$this->load->view('bases/sliders');
 		$this->load->view('bases/galeria');
-		//$this->load->view('index', $data);
+		$this->load->view('bases/planes');
 		$this->load->view('bases/bottom');
 		$this->load->view('footers/footer');
 	}

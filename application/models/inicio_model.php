@@ -13,7 +13,7 @@ class Inicio_model extends CI_Model{
 
 	public function getUsuarios()
 	{
-        $this->db->select('usuarios.id,usuarios.nombre, usuarios.apellido, usuarios.perfil, usuarios.avatar, usuarios.grado, login.email');
+        $this->db->select('usuarios.id,usuarios.nombre, usuarios.apellido, usuarios.rut, usuarios.perfil, usuarios.avatar, usuarios.grado, login.email');
 		$this->db->from('usuarios');
 		$this->db->join('login', 'usuarios.id = login.id');
 		$this->db->where('login.estado', 1);
@@ -24,7 +24,7 @@ class Inicio_model extends CI_Model{
 
 	public function getUsuario($id)
 	{
-        $this->db->select('usuarios.id,usuarios.nombre, usuarios.apellido, usuarios.perfil, usuarios.avatar, usuarios.grado, usuarios.orden, login.email, login.password');
+        $this->db->select('usuarios.id,usuarios.nombre, usuarios.apellido, usuarios.rut, usuarios.perfil, usuarios.avatar, usuarios.grado, usuarios.orden, login.email, login.password');
 		$this->db->from('usuarios');
 		$this->db->where('usuarios.id',$id);
 		$this->db->join('login', 'usuarios.id = login.id');
@@ -51,6 +51,14 @@ class Inicio_model extends CI_Model{
     	$this->db->update('usuarios', $datos);
 		return $this->db->affected_rows();
 	}
+
+	public function setPassword($datos, $id)
+	{
+        $this->db->where('id', $id);
+    	$this->db->update('login', $datos);
+		return $this->db->affected_rows();
+	}
+	
 
 	public function editarLogin($datos, $id)
 	{

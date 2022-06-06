@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/galeria.css">
 <div class="row home-middle m-3 p-5">
   <div class="container">    
-      <app-title [titulo]="'Nuestros programa'"></app-title>
+      <h4>Nuestros programas</h4>
 </div>
     <div class="row bg-light">
       <div class="col-md-4 p-3 bg-light">

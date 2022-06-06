@@ -113,6 +113,7 @@ class Dashboard extends CI_Controller {
 			$usuarioData = array(
 				'nombre'    => $this->input->post("nombre"),
 				'apellido'  => $this->input->post("apellido"),
+				'rut'  		=> $this->input->post("rut"),
 				'perfil' 	=> $this->input->post("perfil"),
 				'grado' 	=> $this->input->post("grado"),
 				'avatar' 	=> $name_avatar,
@@ -120,17 +121,17 @@ class Dashboard extends CI_Controller {
 			);
 
 			$loginData = array(
-				'email' 	=> $this->input->post("email"),
-        		'password' 	=> $this->input->post("password")
+				'email' 	=> $this->input->post("email")
 			);
 
 			$edit = array(
 				'id'        => $this->input->post("id")
 			);
-			$passEcript = md5($loginData["password"]);
+			$passEcript = md5($this->input->post("password"));
 			$dataLogin = array(
 				'email' 	=> $loginData["email"],
-				'password' 	=> $passEcript
+				'password' 	=> $passEcript,
+				'estado' 	=> 1
 			);
 
 			$id =  $edit["id"];
@@ -142,7 +143,7 @@ class Dashboard extends CI_Controller {
 	
 				}else{
 					$resUsuario = $this->Inicio_model->editarUsuario($usuarioData, $id);
-					$resLogin = $this->Inicio_model->editarLogin($dataLogin, $id);
+					$resLogin = $this->Inicio_model->editarLogin($loginData, $id);
 				}
 	
 				if(true){
@@ -181,15 +182,14 @@ class Dashboard extends CI_Controller {
 			if($id != null){
 				$usuario = $this->Inicio_model->getUsuario($id);
 				$usuarioSTD = $usuario[0];
-				$usuarioSTD->password = md5($usuarioSTD->password);
 			}else{
 				$usuarioSTD->id = 0;
 				$usuarioSTD->nombre = "";
 				$usuarioSTD->apellido = "";
+				$usuarioSTD->rut = "";
 				$usuarioSTD->email = "";
 				$usuarioSTD->perfil = "";
 				$usuarioSTD->avatar = "";
-				$usuarioSTD->password = "";
 				$usuarioSTD->grado = "";
 				$usuarioSTD->id = "0";
 				$usuarioSTD->orden = $this->Inicio_model->getCantidades()+1;
@@ -200,6 +200,53 @@ class Dashboard extends CI_Controller {
 			$this->load->view('dashboard/inicio', $datos);
 			$this->load->view('dashboard/editar', $datos);
 			$this->load->view('dashboard/footer');
+		 }else{
+			$this->logout();
+		 }
+	 }
+
+	 public function cambiar($id = null)
+	 {	
+		if($this->session->userdata('user_session')){
+			try {
+				$pass = $this->input->post("clave");
+				$passEncript = md5($pass);
+
+			$cambiar = array(
+				'password' => $passEncript
+			);
+			$resp = $this->Inicio_model->setPassword($cambiar, $id);
+
+			if($resp){
+				return $this->output
+				->set_content_type('application/json')
+				->set_status_header(200)
+				->set_output(json_encode(array(
+						'text' => 'Success',
+						'type' => 'success',
+						'payload' => true
+				)));
+			}else{
+				return $this->output
+				->set_content_type('application/json')
+				->set_status_header(500)
+				->set_output(json_encode(array(
+						'text' => 'Error',
+						'type' => 'warning',
+						'payload' => false
+				)));
+			}
+			} catch (Exception $e) {
+				print_r("ERROR", $e);
+				return $this->output
+				->set_content_type('application/json')
+				->set_status_header(500)
+				->set_output(json_encode(array(
+						'text' => 'Error',
+						'type' => 'warning',
+						'payload' => false
+				)));
+			}
 		 }else{
 			$this->logout();
 		 }
@@ -241,5 +288,5 @@ class Dashboard extends CI_Controller {
 		$this->session->unset_userdata('user_session');
 		redirect('/login');
 	 }
-	
+
 }

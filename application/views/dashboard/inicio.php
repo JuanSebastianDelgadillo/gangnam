@@ -78,10 +78,10 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Home</a>
+                <a href="<?php echo base_url(); ?>dashboard" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="dashboard/perfil" class="nav-link">Perfil</a>
+                <a href="<?php echo base_url(); ?>dashboard/perfil" class="nav-link">Perfil</a>
             </li>
         </ul>
         <div style="float:right;margin-rigth:0px;">
@@ -115,7 +115,7 @@
           <img src="<?php echo $avatar; ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $usuario["nombre"]." ".$usuario["apellido"]; ?></a>
+          <a href="<?php echo base_url(); ?>dashboard/perfil" class="d-block"><?php echo $usuario["nombre"]." ".$usuario["apellido"]; ?></a>
         </div>
       </div>
 

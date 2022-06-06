@@ -37,17 +37,22 @@
                     <!-- <input type="file" class="form-control" id="avatar" accept="image/png, image/jpeg"> -->
                     <div class="card-body">
 
-                        <h4 class="card-text text-center"><input class="form-control" placeholder="Nombre" name="nombre"  id="nombre"type="text" value="<?php echo $usuario->nombre; ?>"></h4>
+                        <h4 class="card-text text-center"><input class="form-control" placeholder="Nombre" name="nombre"  id="nombre" type="text" value="<?php echo $usuario->nombre; ?>"></h4>
                         <h4 class="card-text text-center"><input class="form-control" placeholder="Apellido" name="apellido"  id="apellido"type="text" value="<?php echo $usuario->apellido; ?>"></h4>
-                        <p class="card-text text-center"><input class="form-control" placeholder="Grado" name="grado"  id="grado"type="text" value="<?php echo $usuario->grado; ?>"></p>
-                        <p class="card-text text-center"><input class="form-control" placeholder="Email" name="email"  id="email"type="text" value="<?php echo $usuario->email; ?>"></p>
-                        <p class="card-text text-center"><input class="form-control" placeholder="Password" name="password"  id="password"type="password" value="<?php echo $usuario->password; ?>"></p>
+                        <h4 class="card-text text-center"><input class="form-control" placeholder="Rut" maxlength="10" name="rut"  id="rut" required oninput="checkRut(this)" type="text" value="<?php echo $usuario->rut; ?>"></h4>
+                        <p class="card-text text-center"><input class="form-control" placeholder="Grado" name="grado"  id="grado" type="text" value="<?php echo $usuario->grado; ?>"></p>
+                        <p class="card-text text-center"><input class="form-control" placeholder="Email" name="email"  id="email" type="text" value="<?php echo $usuario->email; ?>"></p>
+                        <?php if(!$usuario->id){ ?>
+                        <p class="card-text text-center"><input class="form-control" placeholder="Password" name="password"  id="password"type="password" value=""></p>
+                        <?php } ?>
                         <label for="cars">Perfil</label>
                         <p class="card-text text-center">
                           <select class="form-control" name="perfil"  id="perfil">
                             <?php 
                               foreach ($perfiles as $perfil) {
-                                echo '<option value="'.$perfil->id.'">'.$perfil->tipo.'</option>';
+                                ?>
+                                <option <?php if($usuario->perfil == $perfil->id) { echo ' selected="selected"'; } ?> value="<?php echo $perfil->id; ?>"><?php echo $perfil->tipo; ?></option>';
+                              <?php
                               }
                             ?>
                            
@@ -78,8 +83,10 @@
   </div>
   <!-- /.content-wrapper -->
 <script>
+  var rutValido = true;
   $(document).ready(function(){
     var filename = null;
+   
     $("#files").change(function() {
       filename = this.files[0].name
     });
@@ -90,7 +97,13 @@
     });
 
     $("#guardar").click(function(e){
-        e.preventDefault();
+      e.preventDefault();
+
+        if(!rutValido){
+          $('#rut').css('border', '2px solid red');
+          return;
+        }
+
         var formData = new FormData($("#form_user")[0]);
         $.ajax({
             url: "<?php echo base_url('dashboard/guardar_usuario');?>",
@@ -115,11 +128,59 @@
             $('#alertFalse').css('display','block');
         });
     });
+});
 
-
-
-
-
-  });
+function checkRut(rut) {
+      // Despejar Puntos
+      var valor = rut.value.replace('.','');
+      // Despejar Guión
+      valor = valor.replace('-','');
+      
+      // Aislar Cuerpo y Dígito Verificador
+      cuerpo = valor.slice(0,-1);
+      dv = valor.slice(-1).toUpperCase();
+      
+      // Formatear RUN
+      rut.value = cuerpo + '-'+ dv
+      
+      // Si no cumple con el mínimo ej. (n.nnn.nnn)
+      if(cuerpo.length < 7) { rut.setCustomValidity("RUT Incompleto"); return false;}
+      
+      // Calcular Dígito Verificador
+      suma = 0;
+      multiplo = 2;
+      
+      // Para cada dígito del Cuerpo
+      for(i=1;i<=cuerpo.length;i++) {
+      
+          // Obtener su Producto con el Múltiplo Correspondiente
+          index = multiplo * valor.charAt(cuerpo.length - i);
+          
+          // Sumar al Contador General
+          suma = suma + index;
+          
+          // Consolidar Múltiplo dentro del rango [2,7]
+          if(multiplo < 7) { multiplo = multiplo + 1; } else { multiplo = 2; }
+    
+      }
+      
+      // Calcular Dígito Verificador en base al Módulo 11
+      dvEsperado = 11 - (suma % 11);
+      
+      // Casos Especiales (0 y K)
+      dv = (dv == 'K')?10:dv;
+      dv = (dv == 0)?11:dv;
+      
+      // Validar que el Cuerpo coincide con su Dígito Verificador
+      if(dvEsperado != dv) { rut.setCustomValidity("RUT Inválido"); 
+        $('#rut').css('border', '2px solid red');
+        rutValido = false;
+        return false; 
+      }
+      
+      // Si todo sale bien, eliminar errores (decretar que es válido)
+      $('#rut').css('border', '2px solid green');
+      rutValido = true;
+  }
 </script>
   
