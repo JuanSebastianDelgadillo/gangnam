@@ -16,7 +16,6 @@ class Login extends CI_Controller {
 	public function login()
 	{
 		$this->session->unset_userdata('user_session');
-		$data = $this->Login_model->getUsuarios();
 		$this->load->view('headers/header');
 		$this->load->view('headers/navbar');
 		$this->load->view('bases/login');
@@ -26,7 +25,6 @@ class Login extends CI_Controller {
 
 	public function forgot()
 	{
-		//$data = $this->Login_model->getUsuarios();
 		$this->load->view('headers/header');
 		$this->load->view('headers/navbar');
 		$this->load->view('bases/login');
@@ -64,7 +62,7 @@ class Login extends CI_Controller {
 
 				//  // get e'thing stored in session at once
 				//  echo '<pre>';
-				//  print_r($this->session->userdata());
+				
 				  
 				//  /**** REMOVE SESSION DATA ****/
 				//  // unset specific key from session
@@ -75,7 +73,7 @@ class Login extends CI_Controller {
 				//  $this->session->unset_userdata($keys);
 			  
 				//  echo '<pre>';
-				//  print_r($this->session->userdata());
+			
 			}else{
 				return $this->output
 				->set_content_type('application/json')

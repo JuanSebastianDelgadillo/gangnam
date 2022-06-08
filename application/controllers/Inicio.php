@@ -14,7 +14,6 @@ class Inicio extends CI_Controller {
 
 	public function index()
 	{
-		$data = $this->Inicio_model->getUsuarios();
 		$this->load->view('headers/header');
 		$this->load->view('headers/navbar');
 		$this->load->view('bases/sliders');
@@ -26,17 +25,14 @@ class Inicio extends CI_Controller {
 
 	public function login()
 	{
-		$data = $this->Inicio_model->getUsuarios();
 		$this->load->view('headers/header');
 		$this->load->view('headers/navbar');
 		$this->load->view('bases/login');
 		$this->load->view('footers/footer');
-		// RewriteRule ^(.*)$ /carpeta/index.php/$1 [L]
 	}
 
 	public function forgot()
 	{
-		$data = $this->Inicio_model->getUsuarios();
 		$this->load->view('headers/header');
 		$this->load->view('headers/navbar');
 		$this->load->view('bases/login');

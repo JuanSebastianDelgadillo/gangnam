@@ -1,61 +1,47 @@
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-3">
-            <h1 class="m-0">Escuela</h1>
-            <?php $usuarioSes = $this->session->userdata('user_session'); ?>
-          </div><!-- /.col -->
-          <?php 
-            if($usuarioSes["perfil"] == 1){
-              ?>
-              <div class="col-sm-3">
-                <a class="btn btn-primary" href="<?php echo base_url(); ?>dashboard/editar">+ Nuevo alumno</i></a>
-              </div><!-- /.col -->
-           <?php  } ?>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>dashboard">Home</a></li>
-              <li class="breadcrumb-item active">Escuela</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+    <div class="row">
+        <h2>Alumnos</h2>
     </div>
-    <!-- /.content-header -->
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-       
+        <div class="row">
+          <div class="col-lg-12 col-12 justify-content-center d-flex">
+            <?php 
+                $director = $usuarios[0];
+                $avatarDirector = base_url()."assets/img/perfil_foto/".$director->avatar;
+                echo '<div class="card" style="width:300px; margin:10px;">';
+                echo ' <img class="card-img-top" src="'.$avatarDirector.'" alt="Card image">';
+                echo '<div class="card-body">';
+                echo '<h4 class="card-text text-center">'.$director->nombre." ".$director->apellido.'</h4>';
+                echo '<h4 class="card-text text-center">Director</h4>';
+                echo '<p class="card-text m-0 p-0"><img src="'.base_url().'assets/img/cinturones/'.$director->cinturon.'.png"></p>';
+                echo '<p class="card-text m-1 text-center">Cinturón '.$director->descripcionCinturon.'</p>';
+                echo '</div>';
+                echo '</div>';
+            ?>
+          </div>
+        </div>
         <div class="row">
           <div class="col-lg-12 col-12 d-flex" style="flex-wrap: wrap;">
                 <!-- CARD -->
                 <?php 
                     foreach($usuarios as $usuario){
-                        if($usuario->avatar){
+                        if ($usuario->id != 1) {
+                          if($usuario->avatar){
                             $avatar = base_url()."assets/img/perfil_foto/".$usuario->avatar;
-                        }else{
-                            $avatar = base_url()."assets/img/logo/perfil.png";
+                          }else{
+                              $avatar = base_url()."assets/img/logo/perfil.png";
+                          }
+                          echo '<div class="card" style="width:300px; margin:10px;">';
+                          echo ' <img class="card-img-top" src="'.$avatar.'" alt="Card image">';
+                          echo '<div class="card-body">';
+                          echo '<h4 class="card-text text-center">'.$usuario->nombre." ".$usuario->apellido.'</h4>';
+                          echo '<p class="card-text m-0 p-0"><img src="'.base_url().'assets/img/cinturones/'.$usuario->cinturon.'.png"></p>';
+                          echo '<p class="card-text m-1 text-center">Cinturón '.$usuario->descripcionCinturon.'</p>';
+                          echo '</div>';
+                          echo '</div>';
                         }
-
-                        echo '<div class="card" style="width:300px; margin:10px;">';
-                        echo ' <img class="card-img-top" src="'.$avatar.'" alt="Card image">';
-                        echo '<div class="card-body">';
-                        echo '<h4 class="card-text text-center">'.$usuario->nombre." ".$usuario->apellido.'</h4>';
-                        if($usuarioSes["perfil"] == 1){
-                        echo '<p class="card-text text-center">'.$usuario->rut.'</p>';
-                        }
-                        echo '<p class="card-text text-center">'.$usuario->grado.'</p>';
-                        echo '<p class="card-text text-center">'.$usuario->email.'</p>';
-                        if($usuarioSes["perfil"] == 1){
-                          echo '<a class="btn btn-danger m-1 delete" id="'.$usuario->id.'&'.$usuario->nombre.'">Eliminar</a>';
-                          echo '<a class="btn btn-primary m-1" href="'.base_url().'dashboard/editar/'.$usuario->id.'">Editar</a>';
-                          echo '<a class="btn btn-warning m-1 clave" id="'.$usuario->nombre.'&'.$usuario->id.'"><img src="'.base_url().'assets/img/logo/pass.png"></a>';
-                        }
-                        
-                        echo '</div>';
-                        echo '</div>';
                     }
                 ?>
           </div>

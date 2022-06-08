@@ -84,7 +84,7 @@ class Dashboard extends CI_Controller {
 			 $datos = $this->session->userdata('user_session');
 			 $datos["usuarios"] = $this->Inicio_model->getUsuarios();
 			$this->load->view('dashboard/inicio', $datos);
-			$this->load->view('dashboard/usuarios', $datos);
+			$this->load->view('dashboard/alumnos', $datos);
 			$this->load->view('dashboard/footer');
 		 }else{
 			$this->logout();
@@ -158,7 +158,7 @@ class Dashboard extends CI_Controller {
 				}else{
 					return $this->output
 					->set_content_type('application/json')
-					->set_status_header(200)
+					->set_status_header(500)
 					->set_output(json_encode(array(
 							'text' => 'forbidden',
 							'type' => 'warning',
@@ -169,7 +169,14 @@ class Dashboard extends CI_Controller {
 				$this->logout();
 			 }
 			} catch (Exception $e) {
-			 print_r("problemas al guardar". $e);
+				return $this->output
+				->set_content_type('application/json')
+				->set_status_header(500)
+				->set_output(json_encode(array(
+						'text' => 'Error al guardar',
+						'type' => 'warning',
+						'payload' => false
+				)));
 		 }
 	 }
 
@@ -178,6 +185,7 @@ class Dashboard extends CI_Controller {
 		if($this->session->userdata('user_session')){
 			$usuarioSTD = new stdClass();
 			$perfiles = $this->Inicio_model->getPerfiles();
+			$grados = $this->Inicio_model->getGrados();
 
 			if($id != null){
 				$usuario = $this->Inicio_model->getUsuario($id);
@@ -197,6 +205,7 @@ class Dashboard extends CI_Controller {
 			
 			$datos["usuario"] = $usuarioSTD;
 			$datos["perfiles"] = $perfiles;
+			$datos["grados"] = $grados;
 			$this->load->view('dashboard/inicio', $datos);
 			$this->load->view('dashboard/editar', $datos);
 			$this->load->view('dashboard/footer');
@@ -237,7 +246,6 @@ class Dashboard extends CI_Controller {
 				)));
 			}
 			} catch (Exception $e) {
-				print_r("ERROR", $e);
 				return $this->output
 				->set_content_type('application/json')
 				->set_status_header(500)

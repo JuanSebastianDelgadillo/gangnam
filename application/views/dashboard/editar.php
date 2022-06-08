@@ -40,7 +40,19 @@
                         <h4 class="card-text text-center"><input class="form-control" placeholder="Nombre" name="nombre"  id="nombre" type="text" value="<?php echo $usuario->nombre; ?>"></h4>
                         <h4 class="card-text text-center"><input class="form-control" placeholder="Apellido" name="apellido"  id="apellido"type="text" value="<?php echo $usuario->apellido; ?>"></h4>
                         <h4 class="card-text text-center"><input class="form-control" placeholder="Rut" maxlength="10" name="rut"  id="rut" required oninput="checkRut(this)" type="text" value="<?php echo $usuario->rut; ?>"></h4>
-                        <p class="card-text text-center"><input class="form-control" placeholder="Grado" name="grado"  id="grado" type="text" value="<?php echo $usuario->grado; ?>"></p>
+                        <label for="cars">Grado</label>
+                        <p class="card-text text-center">
+                          <select class="form-control" name="grado"  id="grado">
+                            <?php 
+                              foreach ($grados as $grado) {
+                                ?>
+                                <option <?php if($usuario->grado == $grado->id) { echo ' selected="selected"'; } ?> value="<?php echo $grado->id; ?>"><?php echo $grado->descripcion; ?></option>';
+                              <?php
+                              }
+                            ?>
+                           
+                          </select>
+                          </p>
                         <p class="card-text text-center"><input class="form-control" placeholder="Email" name="email"  id="email" type="text" value="<?php echo $usuario->email; ?>"></p>
                         <?php if(!$usuario->id){ ?>
                         <p class="card-text text-center"><input class="form-control" placeholder="Password" name="password"  id="password"type="password" value=""></p>

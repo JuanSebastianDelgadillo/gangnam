@@ -13,9 +13,10 @@ class Inicio_model extends CI_Model{
 
 	public function getUsuarios()
 	{
-        $this->db->select('usuarios.id,usuarios.nombre, usuarios.apellido, usuarios.rut, usuarios.perfil, usuarios.avatar, usuarios.grado, login.email');
+        $this->db->select('usuarios.id, usuarios.nombre, usuarios.apellido, usuarios.rut, usuarios.perfil, usuarios.avatar, login.email, cinturones.grado as grado, cinturones.cinturon as cinturon, , cinturones.descripcion as descripcionCinturon');
 		$this->db->from('usuarios');
 		$this->db->join('login', 'usuarios.id = login.id');
+		$this->db->join('cinturones', 'usuarios.grado = cinturones.id','left');
 		$this->db->where('login.estado', 1);
 		$this->db->order_by('orden', 'ASC'); 
 		$query = $this->db->get();
@@ -24,10 +25,11 @@ class Inicio_model extends CI_Model{
 
 	public function getUsuario($id)
 	{
-        $this->db->select('usuarios.id,usuarios.nombre, usuarios.apellido, usuarios.rut, usuarios.perfil, usuarios.avatar, usuarios.grado, usuarios.orden, login.email, login.password');
+        $this->db->select('usuarios.id,usuarios.nombre, usuarios.apellido, usuarios.rut, usuarios.perfil, usuarios.grado,usuarios.avatar, usuarios.orden, login.email, cinturones.grado as gradoCinturon, cinturones.cinturon as cinturon, cinturones.descripcion as descripcionCinturon');
 		$this->db->from('usuarios');
 		$this->db->where('usuarios.id',$id);
 		$this->db->join('login', 'usuarios.id = login.id');
+		$this->db->join('cinturones', 'usuarios.grado = cinturones.id','left');
 		$this->db->limit(1);
 		$query = $this->db->get();
 		return $query->result();
@@ -80,6 +82,13 @@ class Inicio_model extends CI_Model{
 		$query = $this->db->get('perfiles');
 		return $query->result();
 	}
+
+	public function getGrados()
+	{
+		$query = $this->db->get('cinturones');
+		return $query->result();
+	}
+
 
 	public function delete($id, $datos)
     {

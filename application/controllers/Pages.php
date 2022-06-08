@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Pages extends CI_Controller {
     public function __construct() {
 		parent::__construct();
+		$this->load->model('Inicio_model');
 	 }
 
 	public function director()
@@ -53,4 +54,13 @@ class Pages extends CI_Controller {
 		$this->load->view('pages/contacto');
 		$this->load->view('footers/footer');
 	}
+
+	public function alumnos()
+	 {
+		$this->load->view('headers/header');
+		$this->load->view('headers/navbar');
+		$datos["usuarios"] = $this->Inicio_model->getUsuarios();
+		$this->load->view('pages/usuarios', $datos);
+		$this->load->view('footers/footer');
+	 }
 }

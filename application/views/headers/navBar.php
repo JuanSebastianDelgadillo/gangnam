@@ -19,7 +19,7 @@
                 <a class="nav-link {{  activeAcerca }}" href="<?php echo base_url(); ?>acerca">Acerca de nosotros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeProgramas }}" href="<?php echo base_url(); ?>programas">Programas</a>
+                <a class="nav-link {{  activeProgramas }}" href="<?php echo base_url(); ?>alumnos">Alumnos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{  activeAmigos }}" href="<?php echo base_url(); ?>amigos">Amigos</a>
