@@ -1,5 +1,5 @@
 <div class="contenedor">
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg_institucional1">
+    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg_institucional1">
         <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="<?php echo base_url(); ?>assets/img/logo/logo2.png" width="70">
@@ -10,25 +10,25 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link {{ activeHome }}" aria-current="page" href="./">Home</a>
+                <a class="nav-link active" aria-current="page" href="./">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ activeDirector }}" href="<?php echo base_url(); ?>director">Director</a>
+                <a class="nav-link active" href="<?php echo base_url(); ?>director">Director</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeAcerca }}" href="<?php echo base_url(); ?>acerca">Acerca de nosotros</a>
+                <a class="nav-link active" href="<?php echo base_url(); ?>acerca">Acerca de nosotros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeProgramas }}" href="<?php echo base_url(); ?>alumnos">Alumnos</a>
+                <a class="nav-link active" href="<?php echo base_url(); ?>alumnos">Alumnos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeAmigos }}" href="<?php echo base_url(); ?>amigos">Amigos</a>
+                <a class="nav-link active" href="<?php echo base_url(); ?>amigos">Amigos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeCalendario }}" href="<?php echo base_url(); ?>calendario">Calendario</a>
+                <a class="nav-link active" href="<?php echo base_url(); ?>calendario">Calendario</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  activeContacto}}" href="<?php echo base_url(); ?>contacto">Contacto</a>
+                <a class="nav-link active" href="<?php echo base_url(); ?>contacto">Contacto</a>
             </li>
             </ul>
             <span class="navbar-text">
@@ -37,4 +37,5 @@
         </div>
         </div>
     </nav>
+    <div class="borde_inferior bg_institucional2"></div>
 </div>

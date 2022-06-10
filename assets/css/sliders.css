@@ -1,12 +1,14 @@
 .base_slider{
-    width: 100%;
-    background-color: #fafafa;
-    padding: 0;
-    margin: 0;
-}
+    background-image: url("../img/sliders/fondo.jpg");
 
-.base_slider > img{
-    width: 100%;
+    /* Set a specific height */
+    min-height: 600px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .base_titles{
@@ -15,11 +17,16 @@
 }
 
 .titles{
-    color: #fff;
+    color: #fff !important;
     position: absolute;
-    left: 100px;
-    top: 60px;
+    left: 30px;
+    top: 400px;
     z-index: 100;
+    padding: 10px 40px 10px 50px;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #252424;
+    border-radius: 10px 10px 60px 60px;
 }
 
 .base_video{
@@ -70,7 +77,7 @@
  @media (max-width: 767px){
 
     .base_slider{
-        height: 300px;
+        height: 0px;
     }
 
     .titles{

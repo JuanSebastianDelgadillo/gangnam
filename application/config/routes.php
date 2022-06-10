@@ -30,6 +30,7 @@ $route['amigos']    = 'pages/amigos';
 $route['calendario']= 'pages/calendario';
 $route['contacto']  = 'pages/contacto';
 $route['alumnos']  = 'pages/alumnos';
+$route['getGaleria']  = 'inicio/getGaleria';
 
 
 $route['404_override'] = '';

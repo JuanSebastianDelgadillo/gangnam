@@ -9,11 +9,20 @@ html, body{
 }
 
 .bg_institucional1{
-    background: #012c94 !important;
+    background: rgb(1,45,152);
+    background: linear-gradient(90deg, rgba(1,45,152,1) 0%, rgba(2,2,32,1) 100%);
 }
 
 .bg_institucional2{
-    background-color: #D9001D;
+    background: rgb(217,0,29);
+    background: linear-gradient(90deg, rgba(217,0,29,1) 0%, rgba(138,8,25,1) 100%);
+}
+
+.bg_institucional3{
+    background:-webkit-linear-gradient(90deg, #212529 0%, #050505 80%);
+    background:-o-linear-gradient(90deg, #212529 0%, #050505 80%);
+    background:-moz-linear-gradient(90deg, #212529 0%, #050505 80%);
+    background:linear-gradient(90deg, #212529 0%, #050505 80%);
 }
 
 .hr_style_bg1{
@@ -22,6 +31,12 @@ html, body{
 
 .hr_style_bg2{
     border: 3px solid #D9001D;
+}
+
+.borde_inferior{
+    width: 100%;
+    height: 10px;
+    background-color: #D9001D;
 }
 
 .text_justify{
@@ -36,7 +51,12 @@ html, body{
     margin-top: 30px;
   }
   
-  footer .main-footer{  padding: 20px 0;  background: #252525;}
+  footer .main-footer{  padding: 20px 0; 
+    background:-webkit-linear-gradient(90deg, #212529 0%, #050505 80%);
+    background:-o-linear-gradient(90deg, #212529 0%, #050505 80%);
+    background:-moz-linear-gradient(90deg, #212529 0%, #050505 80%);
+    background:linear-gradient(90deg, #212529 0%, #050505 80%);
+}
   footer ul{  padding-left: 0;  list-style: none;}
   
   /* Copy Right Footer */
