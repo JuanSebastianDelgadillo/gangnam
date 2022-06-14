@@ -14,11 +14,12 @@ class Inicio extends CI_Controller {
 
 	public function index()
 	{	
+		$datos["dataGaleria"] = $this->getGaleria();
 		$this->load->view('headers/header');
 		$this->load->view('headers/navbar');
 		$this->load->view('bases/sliders');
 		$this->load->view('bases/intro');
-		$this->load->view('bases/gallery');
+		$this->load->view('bases/gallery', $datos);
 		$this->load->view('bases/programas');
 		$this->load->view('bases/planes');
 		$this->load->view('bases/bottom');
@@ -35,15 +36,7 @@ class Inicio extends CI_Controller {
 			}
 		}
 		closedir($dh);
-
-		return $this->output
-			->set_content_type('application/json')
-			->set_status_header(200)
-			->set_output(json_encode(array(
-					'text' => 'forbidden',
-					'type' => 'warning',
-					'payload' => $imgs
-			)));
+		return json_encode($imgs);
 	}
 
 	public function login()

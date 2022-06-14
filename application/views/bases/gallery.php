@@ -4,21 +4,24 @@
         <div class="arrow_left" id="arrow_left"><img src="<?php echo base_url(); ?>assets/img/logo/arrow_left.png" width="50"></div>
         <div class="arrow_right" id="arrow_right"><img src="<?php echo base_url(); ?>assets/img/logo/arrow_right.png" width="50"></div>
     </div>
-    <div class="carrusel" id="carrusel"></div>
+    <div class="carrusel" id="carrusel">
+        <div class="contenido_carrusel" id="contenido_carrusel">
+        </div>
+    </div>
 </div>
 
-<div class="modal" tabindex="-1" role="dialog" id="modal_gallery">
-  <div class="modal-dialog" role="document">
+<div class="modal" tabindex="-1" id="modal_gallery">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Galeria de fotos</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="modal_gallery_pictures"></div>
+      <div class="modal-body" id="imgGaleria">
+      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -27,12 +30,15 @@
 <script type="text/javascript">
    
     $(document).ready(function (){
+
+        const datosGaleria = '<?php echo $dataGaleria; ?>'
         var screen = $(window).width();
         var cantCard = getCards(screen);
-        var galeriaData = null;
+        var galeriaData = JSON.parse(datosGaleria);
         var firstId = 0;
         var lastId = 0;
-        getGalery();
+        var contenedor = 1;
+        completarGaleria(0);
 
         $(window).on('resize', function() {
             screen = $(window).width();
@@ -40,52 +46,38 @@
             completarGaleria(0);
         });
         
-        function getGalery(){
-            $.ajax({
-            url: "<?php echo base_url('getGaleria');?>",
-            type: "post",
-            cache: false,
-            dataType:'json',
-            success: function (data) {
-                galeriaData = data.payload;
-                completarGaleria(0);
-            }
-            });
-        }
-
         $('#arrow_right').click(function(){
-            if(lastId < galeriaData.length && lastId+cantCard < galeriaData.length){
-                completarGaleria(lastId+1);
-            }else{
-                completarGaleria(0);
-            }
+           $('.contenido_carrusel').animate({left: "-=500px"}, 'fast');
         });
 
         $('#arrow_left').click(function(){
-            console.log("a ver",(lastId+1)-cantCard);
-            if(lastId > cantCard){
-                completarGaleria((lastId-cantCard)-1);
-            }
+            $('.contenido_carrusel').animate({left: "+=500px"}, 'fast');
         });
 
 
         $('.view_modal').click(function(){
-            console.log("click");
+            var idImg = $(this).attr('id');
+            console.log("idImg", idImg);
+            $('#imgGaleria').html('<img width="100%" class="view_modal" src="<?php base_url(); ?>assets/img/galeria_fotos/'+idImg+'">');
             $("#modal_gallery").modal('show');
         });
 
         function completarGaleria(index){
-            var cardComplete = '';
-            for (let i = 0; i < cantCard; i++) {
-                var indexLoc = index+i;
-                cardComplete += '<div class="card bg-dark card_carrusel"><img class="view_modal" id="img&'+galeriaData[indexLoc]+'" src="./assets/img/galeria_fotos/'+galeriaData[indexLoc]+'"></div>';
-                lastId = indexLoc;
+            let cardComplete = '';
+            let contSum = 0;
+            let totalContenedores = Math.ceil(galeriaData.length / cantCard);
+            for (let i = 0; i < galeriaData.length; i++) {
+                contSum = contSum+1;
+                if(contSum === 1){ cardComplete += '<div class="contenedor_imgs" id="cont_'+contenedor+'">' };
+                cardComplete += '<div class="card bg-dark card_carrusel"><img class="view_modal" width="250" id="'+galeriaData[i]+'" src="<?php base_url(); ?>assets/img/galeria_fotos/'+galeriaData[i]+'"></div>';
+                if(contSum === cantCard){  cardComplete += '</div>'; contSum = 0; }
+
             }
-            $('#carrusel').html(cardComplete);
+
+            $('#contenido_carrusel').html(cardComplete);
         }
 
         function getCards(size){
-
             cantCards = 1;
             switch(true){
                 case (size == 0 &&  size < 500) :
